@@ -120,6 +120,16 @@ augroup vimStartup
 
 augroup END
 
+augroup TabWidthConfig
+  au!
+  au FileType html,css,scss,yaml,vim setlocal sw=2 ts=2
+augroup END
+
+augroup GoTabConfig
+  au!
+  au FileType go setlocal noet
+augroup END
+
 
 
 " ***** highlighting a wide space *****
@@ -176,6 +186,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -192,8 +203,14 @@ nnoremap <C-f> :NERDTreeFind<CR>
 let g:airline_left_sep='>'
 let g:airline_right_sep='<'
 let g:airline_detect_modified=1
-" " vim-go
+" vim-go
 let g:go_code_completion_enabled=0
 let g:go_def_mapping_enabled=0
+" emmet
+let g:user_emmet_install_global = 0
+augroup EmmetConfig
+  au!
+  au FileType html,css EmmetInstall
+augroup END
 
 lua require('init')
