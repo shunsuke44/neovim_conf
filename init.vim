@@ -74,6 +74,14 @@ if has("win32")
     source $VIMRUNTIME/menu.vim
 endif
 
+if system('uname -a | grep microsoft') != ''
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif
+
+
 " gui fonts
 if has("win32")
     set guifont=Consolas:h13:w7
