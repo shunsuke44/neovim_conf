@@ -130,7 +130,7 @@ augroup END
 
 augroup TabWidthConfig
   au!
-  au FileType html,css,scss,yaml,vim setlocal sw=2 ts=2
+  au FileType html,htmldjango,css,scss,yaml,vim setlocal sw=2 ts=2
 augroup END
 
 augroup GoTabConfig
@@ -218,7 +218,7 @@ let g:go_def_mapping_enabled=0
 let g:user_emmet_install_global = 0
 augroup EmmetConfig
   au!
-  au FileType html,css EmmetInstall
+  au FileType html,htmldjango,css EmmetInstall
 augroup END
 
 lua require('init')
