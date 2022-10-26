@@ -237,6 +237,6 @@ let g:prettier#autoformat_require_pragma = 0
 " ===================================
 "       AtCoder settings
 " ===================================
-autocmd! Filetype cpp nnoremap <buffer> <F5> :w <bar> !g++ -std=c++14 -Wall %
+autocmd! Filetype cpp nnoremap <buffer> <F5> :w <bar> !g++ -std=c++14 -Wall %<CR>
 
 lua require('init')
