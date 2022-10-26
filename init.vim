@@ -130,12 +130,18 @@ augroup END
 
 augroup TabWidthConfig
   au!
-  au FileType html,htmldjango,css,scss,yaml,vim setlocal sw=2 ts=2
+  au FileType html,htmldjango,css,scss,yaml,vim,json,typescript,typescriptreact setlocal sw=2 ts=2
 augroup END
 
 augroup GoTabConfig
   au!
   au FileType go setlocal noet
+augroup END
+
+augroup PythonFormatOnSave
+  au!
+  au BufWritePre *.py Isort
+  au BufWritePre *.py Black
 augroup END
 
 
@@ -159,9 +165,6 @@ augroup END
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
-" build current file (termwinkey = <C-l>)
-autocmd Filetype cpp nnoremap <F5> :w <bar> let @f = @% <bar> call GoToTerm()<CR>
-                                    \g++ -std=c++14 -Wall <C-l>"f<CR>
 
 " python
 " execute current file
@@ -195,6 +198,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'fisadev/vim-isort'
+Plug 'prettier/vim-prettier', {'do': 'yarn install --frozen-lockfile --production'}
 
 call plug#end()
 
@@ -220,5 +226,17 @@ augroup EmmetConfig
   au!
   au FileType html,htmldjango,css EmmetInstall
 augroup END
+" isort
+let g:vim_isort_map = '<C-i>'
+let g:vim_isort_config_overrides = {'profile': 'black'}
+" prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+
+" ===================================
+"       AtCoder settings
+" ===================================
+autocmd! Filetype cpp nnoremap <buffer> <F5> :w <bar> !g++ -std=c++14 -Wall %
 
 lua require('init')
