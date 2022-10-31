@@ -130,7 +130,7 @@ augroup END
 
 augroup TabWidthConfig
   au!
-  au FileType html,htmldjango,css,scss,yaml,vim,json,typescript,typescriptreact setlocal sw=2 ts=2
+  au FileType html,htmldjango,css,scss,yaml,vim,json,javascript,typescript,typescriptreact setlocal sw=2 ts=2
 augroup END
 
 augroup GoTabConfig
@@ -202,6 +202,9 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fisadev/vim-isort'
 Plug 'prettier/vim-prettier', {'do': 'yarn install --frozen-lockfile --production'}
 
+" colorschemes
+Plug 'jacoborus/tender.vim'
+
 call plug#end()
 
 
@@ -232,6 +235,9 @@ let g:vim_isort_config_overrides = {'profile': 'black'}
 " prettier
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+
+" colorschemes
+colorscheme tender
 
 
 " ===================================
