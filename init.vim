@@ -19,6 +19,8 @@ set number
 set cursorline
 set virtualedit=block
 set showmatch matchtime=1
+set updatetime=500
+set signcolumn=yes
 " tab key
 set expandtab " use space instead of tab
 set shiftwidth=4 " head of a line
@@ -184,9 +186,11 @@ let g:plugged_dir=stdpath('data') . '/plugged'
 
 call plug#begin(g:plugged_dir)
 
+" tools
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
+" lsp
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -194,12 +198,17 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" html
 Plug 'mattn/emmet-vim'
+" python
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fisadev/vim-isort'
+" javascript, typescript
 Plug 'prettier/vim-prettier', {'do': 'yarn install --frozen-lockfile --production'}
 
 " colorschemes
