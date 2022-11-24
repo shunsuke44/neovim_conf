@@ -221,6 +221,8 @@ call plug#end()
 "       Plugin settings
 " ====================================
 " NERDTree
+let NERDTreeShowHidden=1
+let NERDTreeSortHiddenFirst=1
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
