@@ -26,16 +26,19 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-local lsp_installer = require "nvim-lsp-installer"
-local lspconfig = require "lspconfig"
-lsp_installer.setup()
+local lspconfig = require('lspconfig')
+require('mason').setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-for _, server in ipairs(lsp_installer.get_installed_servers()) do
-  lspconfig[server.name].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
+})
 
 -- completion settings
 -- Setup nvim-cmp.
