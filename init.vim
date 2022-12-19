@@ -28,6 +28,8 @@ set tabstop=4 " not head of a line
 set smartindent
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 " window
 set splitbelow
 set splitright

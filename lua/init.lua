@@ -31,11 +31,13 @@ require('mason').setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local mason_lspconfig = require('mason-lspconfig')
+local custom_settings = require("custom_lsp_settings")
 mason_lspconfig.setup_handlers({
   function(server_name)
     lspconfig[server_name].setup {
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = custom_settings.get_custom_settings(server_name),
     }
   end
 })
