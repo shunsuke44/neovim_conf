@@ -16,6 +16,7 @@ set scrolloff=5
 set nrformats-=octal
 set laststatus=2
 set number
+set relativenumber
 set cursorline
 set virtualedit=block
 set showmatch matchtime=1
@@ -50,13 +51,12 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-l> <C-w><C-l>
 " terminal
-tnoremap <C-P> <C-l>"*
-tnoremap <2-RightMouse> <C-l>"*
-tnoremap <F9> a.exe<CR><C-l>"*
-tnoremap <ESC> <C-l>N
+tnoremap <ESC> <C-\><C-N>
 
 
 map Q gq
+
+let mapleader="\<Space>"
 
 " Conditional
 if has('win32')
@@ -134,7 +134,7 @@ augroup END
 
 augroup TabWidthConfig
   au!
-  au FileType html,htmldjango,css,scss,yaml,vim,json,javascript,typescript,typescriptreact setlocal sw=2 ts=2
+  au FileType html,htmldjango,css,scss,yaml,vim,json,javascript,typescript,typescriptreact,lua setlocal sw=2 ts=2
 augroup END
 
 augroup GoTabConfig
@@ -192,6 +192,10 @@ call plug#begin(g:plugged_dir)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 " lsp
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -201,16 +205,21 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " html
 Plug 'mattn/emmet-vim'
+
 " python
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fisadev/vim-isort'
+
 " javascript, typescript
 Plug 'prettier/vim-prettier', {'do': 'yarn install --frozen-lockfile --production'}
 
@@ -228,26 +237,34 @@ let NERDTreeShowHidden=1
 let NERDTreeSortHiddenFirst=1
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" fzf.vim
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>r :Rg<CR>
+
 " airline
 let g:airline_left_sep='>'
 let g:airline_right_sep='<'
 let g:airline_detect_modified=1
+
 " vim-go
 let g:go_code_completion_enabled=0
 let g:go_def_mapping_enabled=0
+
 " emmet
 let g:user_emmet_install_global = 0
 augroup EmmetConfig
   au!
   au FileType html,htmldjango,css EmmetInstall
 augroup END
+
 " isort
 let g:vim_isort_map = '<C-i>'
 let g:vim_isort_config_overrides = {'profile': 'black'}
+
 " prettier
-let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 " colorschemes
