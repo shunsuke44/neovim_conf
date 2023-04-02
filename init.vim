@@ -85,19 +85,11 @@ if system('uname -a | grep microsoft') != ''
   augroup END
 endif
 
-
 " gui fonts
 if has("win32")
     set guifont=Consolas:h13:w7
     set guifontwide=MS_Gothic
 endif
-
-" screen size
-" if !exists("s:loaded_vimrc")
-"   let s:loaded_vimrc = 0
-"   set lines=40
-"   set columns=120
-" endif
 
 " Switch syntax highlighting on when the terminal has colors or when using the
 " GUI (which always has colors).
@@ -142,12 +134,10 @@ augroup GoTabConfig
   au FileType go setlocal noet
 augroup END
 
-augroup PythonFormatOnSave
-  au!
-  au BufWritePre *.py Isort
-  au BufWritePre *.py Black
-augroup END
-
+" augroup LspFormatOnSave
+"   au!
+"   au BufWritePre * lua vim.lsp.buf.format()
+" augroup END
 
 
 " ***** highlighting a wide space *****
@@ -173,12 +163,6 @@ let g:cpp_class_decl_highlight = 1
 " python
 " execute current file
 autocmd Filetype python nnoremap <F5> <Esc>:w <bar> !python <C-r>%<CR>
-" syntax plugin
-" https://github.com/vim-python/python-syntax
-let g:python_highlight_exceptions = 1
-let g:python_highlight_indent_errors = 1
-let g:python_highlight_func_calls = 1
-let g:python_highlight_class_vars = 1
 
 
 " ====================================
@@ -195,6 +179,8 @@ Plug 'preservim/nerdtree'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " lsp
 Plug 'williamboman/mason.nvim'
@@ -215,13 +201,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " html
 Plug 'mattn/emmet-vim'
-
-" python
-Plug 'psf/black', { 'branch': 'stable' }
-Plug 'fisadev/vim-isort'
-
-" javascript, typescript
-Plug 'prettier/vim-prettier', {'do': 'yarn install --frozen-lockfile --production'}
 
 " colorschemes
 Plug 'jacoborus/tender.vim'
@@ -257,15 +236,8 @@ let g:go_def_mapping_enabled=0
 let g:user_emmet_install_global = 0
 augroup EmmetConfig
   au!
-  au FileType html,htmldjango,css EmmetInstall
+  au FileType html,htmldjango,css,typescript,typescriptreact EmmetInstall
 augroup END
-
-" isort
-let g:vim_isort_map = '<C-i>'
-let g:vim_isort_config_overrides = {'profile': 'black'}
-
-" prettier
-let g:prettier#autoformat_require_pragma = 0
 
 " colorschemes
 colorscheme tender
