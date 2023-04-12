@@ -181,6 +181,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'numToStr/Comment.nvim'
+
 
 " lsp
 Plug 'williamboman/mason.nvim'
