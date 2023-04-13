@@ -27,6 +27,7 @@ set expandtab " use space instead of tab
 set shiftwidth=4 " head of a line
 set tabstop=4 " not head of a line
 set smartindent
+set autoindent
 set incsearch
 set hlsearch
 set ignorecase
