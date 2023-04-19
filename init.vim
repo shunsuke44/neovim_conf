@@ -5,12 +5,12 @@ if &compatible
   set nocompatible
 endif
 set backspace=indent,eol,start
-set history=100		
-set ruler		
-set showcmd		
-set wildmenu		
-set ttimeout		
-set ttimeoutlen=100	
+set history=100
+set ruler
+set showcmd
+set wildmenu
+set ttimeout
+set ttimeoutlen=100
 set display=truncate
 set scrolloff=5
 set nrformats-=octal
@@ -22,6 +22,8 @@ set virtualedit=block
 set showmatch matchtime=1
 set updatetime=500
 set signcolumn=yes
+set list
+set listchars=eol:↵,trail:•
 " tab key
 set expandtab " use space instead of tab
 set shiftwidth=4 " head of a line
