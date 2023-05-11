@@ -227,6 +227,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " fzf.vim
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>r :Rg<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 " airline
 let g:airline_left_sep='>'
