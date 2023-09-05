@@ -1,6 +1,4 @@
-vim.keymap.set("n", "<F2>", function()
-	vim.api.nvim_cmd("let", '@/=""')
-end)
+vim.keymap.set("n", "<F2>", ":let @/=''<CR>")
 -- window navigation
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
