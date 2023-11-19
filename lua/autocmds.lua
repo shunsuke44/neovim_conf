@@ -23,6 +23,8 @@ autocmd("FileType", {
 		"typescript",
 		"typescriptreact",
 		"lua",
+    "gohtmltmpl",
+    "cpp",
 	},
 	callback = function(_e)
 		vim.bo.shiftwidth = 2

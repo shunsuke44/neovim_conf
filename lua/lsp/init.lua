@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local lspconfig = require("lspconfig")
+lspconfig.clangd.setup{}
 require("mason").setup()
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -86,6 +87,8 @@ cmp.setup.filetype("gitcommit", {
 
 require("toggleterm").setup({
 	open_mapping = [[<c-t><c-t>]],
+	direction = "float",
+	size = 40,
 })
 
 local null_ls = require("null-ls")

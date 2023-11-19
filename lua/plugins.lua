@@ -26,6 +26,7 @@ local emmet_filetypes = {
 	"typescript",
 	"typescriptreact",
 	"eruby",
+  "gohtmltmpl",
 }
 
 vim.api.nvim_create_autocmd("FileType", {
