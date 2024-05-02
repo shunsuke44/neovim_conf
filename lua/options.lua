@@ -30,5 +30,4 @@ vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.backup = false
-vim.opt.clipboard:append({ "unnamed" })
 vim.opt.encoding = "utf-8"
